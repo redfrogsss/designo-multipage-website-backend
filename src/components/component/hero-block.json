@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_component_hero_blocks",
+  "info": {
+    "displayName": "Hero Block",
+    "icon": "write",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "text",
+      "required": true
+    },
+    "btn_text": {
+      "type": "string",
+      "required": true
+    },
+    "btn_href": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
