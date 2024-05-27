@@ -15,11 +15,14 @@
     "Contents": {
       "type": "dynamiczone",
       "components": [
-        "component.hero-block"
+        "component.hero-block",
+        "component.gallery-grid"
       ]
     },
     "path": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "regex": "^/"
     }
   }
 }

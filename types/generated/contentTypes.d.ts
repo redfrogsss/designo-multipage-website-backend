@@ -374,8 +374,10 @@ export interface ApiPagePage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Contents: Attribute.DynamicZone<['component.hero-block']>;
-    path: Attribute.String;
+    Contents: Attribute.DynamicZone<
+      ['component.hero-block', 'component.gallery-grid']
+    >;
+    path: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
