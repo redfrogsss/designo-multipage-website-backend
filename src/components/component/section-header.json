@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_component_section_headers",
+  "info": {
+    "displayName": "Section Header",
+    "icon": "write"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_component_terms_grids",
+  "info": {
+    "displayName": "Terms Grid",
+    "icon": "write"
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "displayName": "Terms Grid Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "component-parts.terms-grid-item"
+    }
+  }
+}
