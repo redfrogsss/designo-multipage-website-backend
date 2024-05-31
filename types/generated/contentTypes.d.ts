@@ -362,39 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiPagePage extends Schema.CollectionType {
-  collectionName: 'pages';
-  info: {
-    singularName: 'page';
-    pluralName: 'pages';
-    displayName: 'Page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Contents: Attribute.DynamicZone<
-      [
-        'component.hero-block',
-        'component.gallery-grid',
-        'component.terms-grid',
-        'component.section-header',
-        'component.about-block'
-      ]
-    >;
-    path: Attribute.String & Attribute.Unique;
-    title: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -821,6 +788,156 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAppDesignAppDesign extends Schema.CollectionType {
+  collectionName: 'app_designs';
+  info: {
+    singularName: 'app-design';
+    pluralName: 'app-designs';
+    displayName: 'app-design';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    desc: Attribute.Text & Attribute.Required;
+    img: Attribute.Media;
+    page: Attribute.Relation<
+      'api::app-design.app-design',
+      'oneToOne',
+      'api::page.page'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::app-design.app-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::app-design.app-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGraphicDesignGraphicDesign extends Schema.CollectionType {
+  collectionName: 'graphic_designs';
+  info: {
+    singularName: 'graphic-design';
+    pluralName: 'graphic-designs';
+    displayName: 'Graphic Design';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    desc: Attribute.Text & Attribute.Required;
+    img: Attribute.Media;
+    page: Attribute.Relation<
+      'api::graphic-design.graphic-design',
+      'oneToOne',
+      'api::page.page'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::graphic-design.graphic-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::graphic-design.graphic-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contents: Attribute.DynamicZone<
+      [
+        'component.hero-block',
+        'component.gallery-grid',
+        'component.terms-grid',
+        'component.section-header',
+        'component.about-block',
+        'collections.app-design',
+        'collections.graphic-design',
+        'collections.web-design',
+        'component.image-card',
+        'component.location-grid'
+      ]
+    >;
+    path: Attribute.String & Attribute.Unique;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWebDesignWebDesign extends Schema.CollectionType {
+  collectionName: 'web_designs';
+  info: {
+    singularName: 'web-design';
+    pluralName: 'web-designs';
+    displayName: 'Web Design';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    desc: Attribute.Text & Attribute.Required;
+    img: Attribute.Media & Attribute.Required;
+    page: Attribute.Relation<
+      'api::web-design.web-design',
+      'oneToOne',
+      'api::page.page'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::web-design.web-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::web-design.web-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -831,7 +948,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::page.page': ApiPagePage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -840,6 +956,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::app-design.app-design': ApiAppDesignAppDesign;
+      'api::graphic-design.graphic-design': ApiGraphicDesignGraphicDesign;
+      'api::page.page': ApiPagePage;
+      'api::web-design.web-design': ApiWebDesignWebDesign;
     }
   }
 }

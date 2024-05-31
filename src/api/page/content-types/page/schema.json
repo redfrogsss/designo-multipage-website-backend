@@ -19,7 +19,12 @@
         "component.gallery-grid",
         "component.terms-grid",
         "component.section-header",
-        "component.about-block"
+        "component.about-block",
+        "collections.app-design",
+        "collections.graphic-design",
+        "collections.web-design",
+        "component.image-card",
+        "component.location-grid"
       ]
     },
     "path": {

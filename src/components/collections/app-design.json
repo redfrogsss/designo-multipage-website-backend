@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_collections_app_designs",
+  "info": {
+    "displayName": "App Design",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "enable": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

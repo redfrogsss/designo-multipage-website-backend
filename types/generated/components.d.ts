@@ -1,5 +1,38 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CollectionsAppDesign extends Schema.Component {
+  collectionName: 'components_collections_app_designs';
+  info: {
+    displayName: 'App Design';
+    icon: 'bulletList';
+  };
+  attributes: {
+    enable: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface CollectionsGraphicDesign extends Schema.Component {
+  collectionName: 'components_collections_graphic_designs';
+  info: {
+    displayName: 'Graphic Design';
+    icon: 'bulletList';
+  };
+  attributes: {
+    enable: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface CollectionsWebDesign extends Schema.Component {
+  collectionName: 'components_collections_web_designs';
+  info: {
+    displayName: 'Web Design';
+    icon: 'bulletList';
+  };
+  attributes: {
+    enable: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ComponentPartsGridItem extends Schema.Component {
   collectionName: 'components_component_parts_grid_items';
   info: {
@@ -16,6 +49,24 @@ export interface ComponentPartsGridItem extends Schema.Component {
       'api::page.page'
     >;
     mobile_img: Attribute.Media;
+  };
+}
+
+export interface ComponentPartsLocationGridItem extends Schema.Component {
+  collectionName: 'components_component_parts_location_grid_items';
+  info: {
+    displayName: 'Location Grid Item';
+    icon: 'write';
+  };
+  attributes: {
+    title: Attribute.String;
+    img: Attribute.Media;
+    btnText: Attribute.String;
+    page: Attribute.Relation<
+      'component-parts.location-grid-item',
+      'oneToOne',
+      'api::page.page'
+    >;
   };
 }
 
@@ -90,6 +141,43 @@ export interface ComponentHeroBlock extends Schema.Component {
   };
 }
 
+export interface ComponentImageCard extends Schema.Component {
+  collectionName: 'components_component_image_cards';
+  info: {
+    displayName: 'Image Card';
+    icon: 'write';
+  };
+  attributes: {
+    title: Attribute.String;
+    desc: Attribute.Blocks;
+    img: Attribute.Media;
+    mobileImg: Attribute.Media;
+    tabletImg: Attribute.Media;
+    reverse: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ComponentLocationGrid extends Schema.Component {
+  collectionName: 'components_component_location_grids';
+  info: {
+    displayName: 'Location Grid';
+    icon: 'write';
+    description: '';
+  };
+  attributes: {
+    Items: Attribute.Component<'component-parts.location-grid-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
 export interface ComponentSectionHeader extends Schema.Component {
   collectionName: 'components_component_section_headers';
   info: {
@@ -116,11 +204,17 @@ export interface ComponentTermsGrid extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'collections.app-design': CollectionsAppDesign;
+      'collections.graphic-design': CollectionsGraphicDesign;
+      'collections.web-design': CollectionsWebDesign;
       'component-parts.grid-item': ComponentPartsGridItem;
+      'component-parts.location-grid-item': ComponentPartsLocationGridItem;
       'component-parts.terms-grid-item': ComponentPartsTermsGridItem;
       'component.about-block': ComponentAboutBlock;
       'component.gallery-grid': ComponentGalleryGrid;
       'component.hero-block': ComponentHeroBlock;
+      'component.image-card': ComponentImageCard;
+      'component.location-grid': ComponentLocationGrid;
       'component.section-header': ComponentSectionHeader;
       'component.terms-grid': ComponentTermsGrid;
     }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_component_location_grids",
+  "info": {
+    "displayName": "Location Grid",
+    "icon": "write",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component-parts.location-grid-item",
+      "required": true,
+      "max": 3
+    }
+  }
+}

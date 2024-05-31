@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_collections_web_designs",
+  "info": {
+    "displayName": "Web Design",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "enable": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

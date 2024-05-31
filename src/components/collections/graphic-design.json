@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_collections_graphic_designs",
+  "info": {
+    "displayName": "Graphic Design",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "enable": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
