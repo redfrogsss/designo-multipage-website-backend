@@ -178,6 +178,24 @@ export interface ComponentLocationGrid extends Schema.Component {
   };
 }
 
+export interface ComponentOfficeCardRow extends Schema.Component {
+  collectionName: 'components_component_office_card_rows';
+  info: {
+    displayName: 'Office Card Row';
+    icon: 'write';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    leftContent: Attribute.Blocks;
+    rightContent: Attribute.Blocks;
+    location: Attribute.Media;
+    reverse: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ComponentSectionHeader extends Schema.Component {
   collectionName: 'components_component_section_headers';
   info: {
@@ -215,6 +233,7 @@ declare module '@strapi/types' {
       'component.hero-block': ComponentHeroBlock;
       'component.image-card': ComponentImageCard;
       'component.location-grid': ComponentLocationGrid;
+      'component.office-card-row': ComponentOfficeCardRow;
       'component.section-header': ComponentSectionHeader;
       'component.terms-grid': ComponentTermsGrid;
     }

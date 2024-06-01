@@ -885,7 +885,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'collections.graphic-design',
         'collections.web-design',
         'component.image-card',
-        'component.location-grid'
+        'component.location-grid',
+        'component.office-card-row'
       ]
     >;
     path: Attribute.String & Attribute.Unique;

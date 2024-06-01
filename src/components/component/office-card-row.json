@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_component_office_card_rows",
+  "info": {
+    "displayName": "Office Card Row",
+    "icon": "write",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "leftContent": {
+      "type": "blocks"
+    },
+    "rightContent": {
+      "type": "blocks"
+    },
+    "location": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "reverse": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
