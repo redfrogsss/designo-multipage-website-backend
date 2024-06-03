@@ -961,6 +961,7 @@ export interface ApiSiteSettingSiteSetting extends Schema.SingleType {
     sitename: Attribute.String & Attribute.Required;
     siteDesc: Attribute.Text;
     menuItem: Attribute.Component<'component-parts.menu-item', true>;
+    footerBlock: Attribute.Component<'component-parts.footer-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

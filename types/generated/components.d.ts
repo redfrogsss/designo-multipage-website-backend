@@ -44,6 +44,24 @@ export interface CollectionsWebDesign extends Schema.Component {
   };
 }
 
+export interface ComponentPartsFooterBlock extends Schema.Component {
+  collectionName: 'components_component_parts_footer_blocks';
+  info: {
+    displayName: 'Footer Block';
+    icon: 'grid';
+  };
+  attributes: {
+    title: Attribute.String;
+    desc: Attribute.Text;
+    btnText: Attribute.String;
+    page: Attribute.Relation<
+      'component-parts.footer-block',
+      'oneToOne',
+      'api::page.page'
+    >;
+  };
+}
+
 export interface ComponentPartsGridItem extends Schema.Component {
   collectionName: 'components_component_parts_grid_items';
   info: {
@@ -253,6 +271,7 @@ declare module '@strapi/types' {
       'collections.contact-form': CollectionsContactForm;
       'collections.graphic-design': CollectionsGraphicDesign;
       'collections.web-design': CollectionsWebDesign;
+      'component-parts.footer-block': ComponentPartsFooterBlock;
       'component-parts.grid-item': ComponentPartsGridItem;
       'component-parts.location-grid-item': ComponentPartsLocationGridItem;
       'component-parts.menu-item': ComponentPartsMenuItem;
