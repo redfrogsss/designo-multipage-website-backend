@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_collections_contact_forms",
+  "info": {
+    "displayName": "Contact Form",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "enable": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

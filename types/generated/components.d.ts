@@ -11,6 +11,17 @@ export interface CollectionsAppDesign extends Schema.Component {
   };
 }
 
+export interface CollectionsContactForm extends Schema.Component {
+  collectionName: 'components_collections_contact_forms';
+  info: {
+    displayName: 'Contact Form';
+    icon: 'discuss';
+  };
+  attributes: {
+    enable: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface CollectionsGraphicDesign extends Schema.Component {
   collectionName: 'components_collections_graphic_designs';
   info: {
@@ -64,6 +75,22 @@ export interface ComponentPartsLocationGridItem extends Schema.Component {
     btnText: Attribute.String;
     page: Attribute.Relation<
       'component-parts.location-grid-item',
+      'oneToOne',
+      'api::page.page'
+    >;
+  };
+}
+
+export interface ComponentPartsMenuItem extends Schema.Component {
+  collectionName: 'components_component_parts_menu_items';
+  info: {
+    displayName: 'Menu Item';
+    icon: 'apps';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    page: Attribute.Relation<
+      'component-parts.menu-item',
       'oneToOne',
       'api::page.page'
     >;
@@ -223,10 +250,12 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'collections.app-design': CollectionsAppDesign;
+      'collections.contact-form': CollectionsContactForm;
       'collections.graphic-design': CollectionsGraphicDesign;
       'collections.web-design': CollectionsWebDesign;
       'component-parts.grid-item': ComponentPartsGridItem;
       'component-parts.location-grid-item': ComponentPartsLocationGridItem;
+      'component-parts.menu-item': ComponentPartsMenuItem;
       'component-parts.terms-grid-item': ComponentPartsTermsGridItem;
       'component.about-block': ComponentAboutBlock;
       'component.gallery-grid': ComponentGalleryGrid;

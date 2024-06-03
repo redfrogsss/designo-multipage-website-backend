@@ -25,7 +25,8 @@
         "collections.web-design",
         "component.image-card",
         "component.location-grid",
-        "component.office-card-row"
+        "component.office-card-row",
+        "collections.contact-form"
       ]
     },
     "path": {

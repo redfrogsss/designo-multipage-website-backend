@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_component_parts_menu_items",
+  "info": {
+    "displayName": "Menu Item",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    }
+  }
+}

@@ -825,6 +825,41 @@ export interface ApiAppDesignAppDesign extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactFormResponseContactFormResponse
+  extends Schema.CollectionType {
+  collectionName: 'contact_form_responses';
+  info: {
+    singularName: 'contact-form-response';
+    pluralName: 'contact-form-responses';
+    displayName: 'Contact Form Response';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.String;
+    message: Attribute.Text;
+    phone: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-form-response.contact-form-response',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-form-response.contact-form-response',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGraphicDesignGraphicDesign extends Schema.CollectionType {
   collectionName: 'graphic_designs';
   info: {
@@ -886,7 +921,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'collections.web-design',
         'component.image-card',
         'component.location-grid',
-        'component.office-card-row'
+        'component.office-card-row',
+        'collections.contact-form'
       ]
     >;
     path: Attribute.String & Attribute.Unique;
@@ -897,6 +933,48 @@ export interface ApiPagePage extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSiteSettingSiteSetting extends Schema.SingleType {
+  collectionName: 'site_settings';
+  info: {
+    singularName: 'site-setting';
+    pluralName: 'site-settings';
+    displayName: 'Site Setting';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    siteLogo: Attribute.Media & Attribute.Required;
+    leftContent: Attribute.Blocks;
+    rightContent: Attribute.Blocks;
+    facebook: Attribute.String;
+    youtube: Attribute.String;
+    twitter: Attribute.String;
+    pinterest: Attribute.String;
+    instagram: Attribute.String;
+    siteLogoDark: Attribute.Media;
+    sitename: Attribute.String & Attribute.Required;
+    siteDesc: Attribute.Text;
+    menuItem: Attribute.Component<'component-parts.menu-item', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::site-setting.site-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::site-setting.site-setting',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -958,8 +1036,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::app-design.app-design': ApiAppDesignAppDesign;
+      'api::contact-form-response.contact-form-response': ApiContactFormResponseContactFormResponse;
       'api::graphic-design.graphic-design': ApiGraphicDesignGraphicDesign;
       'api::page.page': ApiPagePage;
+      'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
       'api::web-design.web-design': ApiWebDesignWebDesign;
     }
   }

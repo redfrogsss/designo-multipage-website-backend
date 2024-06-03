@@ -1,0 +1,68 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "Site Setting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "leftContent": {
+      "type": "blocks"
+    },
+    "rightContent": {
+      "type": "blocks"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "pinterest": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "siteLogoDark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sitename": {
+      "type": "string",
+      "required": true
+    },
+    "siteDesc": {
+      "type": "text"
+    },
+    "menuItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component-parts.menu-item"
+    }
+  }
+}

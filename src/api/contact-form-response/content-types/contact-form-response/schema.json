@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_form_responses",
+  "info": {
+    "singularName": "contact-form-response",
+    "pluralName": "contact-form-responses",
+    "displayName": "Contact Form Response",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}
