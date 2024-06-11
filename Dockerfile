@@ -3,8 +3,8 @@ WORKDIR /app
 COPY . .
 RUN rm -rf node_modules
 RUN npm install
-RUN npm build
+RUN npm run build
 
 EXPOSE 1337
 ENV NODE_ENV=production
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
